@@ -30,7 +30,7 @@ echo "$readme_content" > "$readme_path"
 echo "README.md created at $folder_name with provided content."
 
 # adding a script file to automate pushing to git
-cat << 'EOF' > "$folder_name/push_to_git.sh"
+cat << 'EOF' > "$folder_name/gitpush.sh"
 #!/usr/bin/bash
 
 # check if it is inside a git repository
@@ -45,9 +45,9 @@ read -p "Enter commit message: " commit_message
 git commit -m "$commit_message"
 git push
 EOF
-echo "Created push_to_git.sh script."
+echo "Created gitpush.sh script."
 
-chmod +x "$folder_name/push_to_git.sh"
-echo "push_to_git.sh created at $folder_name and made executable."
+chmod +x "$folder_name/gitpush.sh"
+echo "gitpush.sh created at $folder_name and made executable."
 
-echo "All files created successfully in $folder_name at $(date)."
+echo "All files created successfully in $folder_name at $(date +%d-%m-%Y)."
