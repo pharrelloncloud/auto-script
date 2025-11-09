@@ -1,10 +1,12 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This script removes the generated script folder and its contents.
 
 set -euo pipefail
 
 # ask for the folder name to remove
+
+ls -a
 
 read -p "Enter the folder name to remove: " folder_name
 

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This script takes answers from the command line and writes it into a file in a desired place.
 
