@@ -46,7 +46,7 @@ echo "README.md created at $folder_name with provided content."
 
 # adding a script file to automate pushing to git
 cat << 'EOF' > "$folder_name/gitpush.sh"
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # check if it is inside a git repository
 if [ ! -d ".git" ]; then
