@@ -7,13 +7,28 @@ set -euo pipefail
 # ask for the folder name (where to save the file)
 read -p "Enter the folder name where you want to save the file: " folder_name
 
+if [ -d "$folder_name" ]; then
+  echo "Folder $folder_name already exists. Exiting to avoid overwriting."
+  exit 1
+fi
 mkdir -p "$folder_name"
 echo "Created folder: $folder_name"
 
 # ask for the script name
 read -p "Enter the script name (no .sh): " script_name
 
-# create the scipt file inside the folder
+if [[ "$script_name" =~ \.sh$ ]]; then
+  echo "Please do not include the .sh extension in the script name. Exiting."
+  exit 1
+fi
+
+# check if the script file already exists in the folder
+if [ -f "$folder_name/$script_name.sh" ]; then
+  echo "Script $script_name.sh already exists in $folder_name. Exiting to avoid overwriting."
+  exit 1
+fi
+
+# create the script file inside the folder
 script_path="$folder_name/$script_name.sh"
 touch "$script_path"
 
